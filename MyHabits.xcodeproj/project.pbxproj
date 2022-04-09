@@ -9,19 +9,33 @@
 /* Begin PBXBuildFile section */
 		313F42EF28019DEF007052DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313F42EE28019DEF007052DB /* AppDelegate.swift */; };
 		313F42F128019DEF007052DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313F42F028019DEF007052DB /* SceneDelegate.swift */; };
-		313F42F328019DEF007052DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313F42F228019DEF007052DB /* ViewController.swift */; };
+		313F42F328019DEF007052DB /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313F42F228019DEF007052DB /* HabitsViewController.swift */; };
 		313F42F828019DF0007052DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313F42F728019DF0007052DB /* Assets.xcassets */; };
 		313F42FB28019DF0007052DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 313F42F928019DF0007052DB /* LaunchScreen.storyboard */; };
+		313F43082801A59B007052DB /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313F43072801A59B007052DB /* UIColor + Extension.swift */; };
+		313F430A2801B0E1007052DB /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313F43092801B0E1007052DB /* UIFont + Extension.swift */; };
+		313F430D2801B9F1007052DB /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 313F430C2801B9F1007052DB /* SF-Pro-Display-Semibold.otf */; };
+		313F430F2801BA28007052DB /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 313F430E2801BA28007052DB /* SF-Pro-Text-Semibold.otf */; };
+		313F43112801BA45007052DB /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 313F43102801BA45007052DB /* SF-Pro-Text-Regular.otf */; };
+		313F43152801BFBD007052DB /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313F43142801BFBD007052DB /* InfoViewController.swift */; };
+		313F43172801C094007052DB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313F43162801C094007052DB /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		313F42EB28019DEF007052DB /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		313F42EE28019DEF007052DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		313F42F028019DEF007052DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		313F42F228019DEF007052DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		313F42F228019DEF007052DB /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 		313F42F728019DF0007052DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		313F42FA28019DF0007052DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		313F42FC28019DF0007052DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		313F43072801A59B007052DB /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		313F43092801B0E1007052DB /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
+		313F430C2801B9F1007052DB /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
+		313F430E2801BA28007052DB /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
+		313F43102801BA45007052DB /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
+		313F43142801BFBD007052DB /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		313F43162801C094007052DB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +88,9 @@
 		313F430328019F1E007052DB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				313F42F228019DEF007052DB /* ViewController.swift */,
+				313F43162801C094007052DB /* TabBarController.swift */,
+				313F42F228019DEF007052DB /* HabitsViewController.swift */,
+				313F43142801BFBD007052DB /* InfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -82,6 +98,7 @@
 		313F430428019F2D007052DB /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				313F430B2801B6F0007052DB /* Fonts */,
 				313F42F728019DF0007052DB /* Assets.xcassets */,
 				313F42F928019DF0007052DB /* LaunchScreen.storyboard */,
 				313F42FC28019DF0007052DB /* Info.plist */,
@@ -100,8 +117,20 @@
 		313F43062801A0DF007052DB /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				313F43072801A59B007052DB /* UIColor + Extension.swift */,
+				313F43092801B0E1007052DB /* UIFont + Extension.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		313F430B2801B6F0007052DB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				313F430C2801B9F1007052DB /* SF-Pro-Display-Semibold.otf */,
+				313F430E2801BA28007052DB /* SF-Pro-Text-Semibold.otf */,
+				313F43102801BA45007052DB /* SF-Pro-Text-Regular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +191,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				313F430F2801BA28007052DB /* SF-Pro-Text-Semibold.otf in Resources */,
+				313F43112801BA45007052DB /* SF-Pro-Text-Regular.otf in Resources */,
+				313F430D2801B9F1007052DB /* SF-Pro-Display-Semibold.otf in Resources */,
 				313F42FB28019DF0007052DB /* LaunchScreen.storyboard in Resources */,
 				313F42F828019DF0007052DB /* Assets.xcassets in Resources */,
 			);
@@ -174,8 +206,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				313F42F328019DEF007052DB /* ViewController.swift in Sources */,
+				313F430A2801B0E1007052DB /* UIFont + Extension.swift in Sources */,
+				313F42F328019DEF007052DB /* HabitsViewController.swift in Sources */,
+				313F43082801A59B007052DB /* UIColor + Extension.swift in Sources */,
 				313F42EF28019DEF007052DB /* AppDelegate.swift in Sources */,
+				313F43172801C094007052DB /* TabBarController.swift in Sources */,
+				313F43152801BFBD007052DB /* InfoViewController.swift in Sources */,
 				313F42F128019DEF007052DB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +358,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -349,6 +386,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
