@@ -14,9 +14,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
         window = UIWindow(windowScene: windowScene)
+        //window?.rootViewController = createTabBar()
         window?.rootViewController = TabBarController()
         window?.makeKeyAndVisible()
+    }
+    
+    func createHabitsNavigigationController() -> UINavigationController {
+        let habitsVC = HabitsViewController()
+        habitsVC.title = "Привычки"
+        habitsVC.tabBarItem = UITabBarItem(title: "Привычки", image: UIImage(systemName: "rectangle.grid.1x2.fill"), tag: 0)
+        return UINavigationController(rootViewController: habitsVC)
+    }
+    
+    func createInfoNavigigationController() -> UINavigationController {
+        let infoVC = InfoViewController()
+        infoVC.title = "Информация"
+        infoVC.tabBarItem = UITabBarItem(title: "Информация", image: UIImage(systemName: "info.circle.fill"), tag: 1)
+        return UINavigationController(rootViewController: infoVC)
+    }
+    
+    func createTabBar() -> UITabBarController {
+        let tabBar = UITabBarController()
+        //UITabBar.appearance().tintColor = .specialBlue
+        tabBar.view.backgroundColor = .specialBackgroundTabBar
+        tabBar.viewControllers = [createHabitsNavigigationController(), createInfoNavigigationController()]
+        return tabBar
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

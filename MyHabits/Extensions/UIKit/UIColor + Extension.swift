@@ -19,6 +19,7 @@ extension UIColor {
     static let specialGreen = #colorLiteral(red: 0.1137254902, green: 0.7019607843, blue: 0.1333333333, alpha: 1)
     static let specialIndigo = #colorLiteral(red: 0.3843137255, green: 0.2117647059, blue: 1, alpha: 1)
     static let specialOrange = #colorLiteral(red: 1, green: 0.6235294118, blue: 0.3098039216, alpha: 1)
+    static let specialRed = #colorLiteral(red: 1, green: 0.231372549, blue: 0.1882352941, alpha: 1)
     static let specialBackgroundTabBar = #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 0.8)
 }
 

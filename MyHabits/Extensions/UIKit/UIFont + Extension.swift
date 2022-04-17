@@ -10,6 +10,11 @@ import UIKit
 extension UIFont {
     
     //Semibold
+    
+    static func sfProDisplaySemi24() -> UIFont? {
+        return UIFont.init(name: "SF-Pro-Display-Semibold", size: 24)
+    }
+    
     static func sfProDisplaySemi20() -> UIFont? {
         return UIFont.init(name: "SF-Pro-Display-Semibold", size: 20)
     }
