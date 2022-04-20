@@ -9,12 +9,6 @@ import UIKit
 
 class HabitsViewController: UIViewController {
     
-//    private let navController: UINavigationController = {
-//       let nav = UINavigationController()
-//
-//        return nav
-//    }()
-    
     private let array: [Int] = {
        var arr = [Int]()
         for i in 0...30 {
@@ -53,9 +47,6 @@ class HabitsViewController: UIViewController {
     private func setupDelegates() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-//        tableView.dataSource = self
-//        tableView.delegate = self
     }
     //MARK: @objc functions
     @objc private func addHabit() {
@@ -112,5 +103,13 @@ extension HabitsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         lineSpacingForSection
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let habitDetailVC = HabitDetailsViewController()
+//        let navContr = UINavigationController(rootViewController: habitDetailVC)
+//        navContr.modalPresentationStyle = .fullScreen
+//        present(navContr,animated: true)
+        navigationController?.pushViewController(habitDetailVC, animated: true)
     }
 }
