@@ -39,6 +39,7 @@ class HabitsViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = .specialLightGray
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addHabit))
+        navigationItem.rightBarButtonItem?.tintColor = .specialPurple
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Сегодня"
         [progressView, collectionView].forEach{ view.addSubview($0) }
@@ -107,9 +108,12 @@ extension HabitsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let habitDetailVC = HabitDetailsViewController()
-//        let navContr = UINavigationController(rootViewController: habitDetailVC)
-//        navContr.modalPresentationStyle = .fullScreen
-//        present(navContr,animated: true)
-        navigationController?.pushViewController(habitDetailVC, animated: true)
+        let navContr = UINavigationController(rootViewController: habitDetailVC)
+        navContr.modalPresentationStyle = .fullScreen
+        present(navContr,animated: true)
+//        habitDetailVC.title = "wefv"
+//        habitDetailVC.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "sddcs", style: .done, target: self, action: nil)
+//        navigationController?.navigationBar.tintColor = .specialPurple
+//        navigationController?.pushViewController(habitDetailVC, animated: true)
     }
 }

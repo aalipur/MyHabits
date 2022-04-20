@@ -81,7 +81,9 @@ class HabitViewController: UIViewController {
     private func setupNavigation() {
         navigationItem.title = "Создать"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отменить", style: .done, target: self, action: #selector(dismissAction))
+        navigationItem.leftBarButtonItem?.tintColor = .specialPurple
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Создать", style: .done, target: self, action: #selector(saveAction))
+        navigationItem.rightBarButtonItem?.tintColor = .specialPurple
     }
     
     private func datePickerChanged() -> String {

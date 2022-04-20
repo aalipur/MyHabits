@@ -24,9 +24,11 @@ class HabitDetailsViewController: UIViewController {
     }
     
     private func setupNavigation() {
-        //navigationItem.title = "Сделать зарядку"
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Сегодня", style: .done, target: self, action: #selector(dismissAction))
+        navigationItem.title = "Сделать зарядку"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Сегодня", style: .done, target: self, action: #selector(dismissAction))
+        navigationItem.leftBarButtonItem?.tintColor = .specialPurple
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Править", style: .done, target: self, action: #selector(editAction))
+        navigationItem.rightBarButtonItem?.tintColor = .specialPurple
     }
     
     //MARK: @objc functions
