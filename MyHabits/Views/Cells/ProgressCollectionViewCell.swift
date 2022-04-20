@@ -51,7 +51,7 @@ class ProgressCollectionViewCell: UICollectionViewCell {
             mainLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topDownInset),
             mainLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftRightInset),
             mainLabel.heightAnchor.constraint(equalToConstant: heightOfLabel),
-            //mainLabel.widthAnchor.constraint(equalToConstant: 216),
+            mainLabel.widthAnchor.constraint(equalToConstant: 216),
             
             percentLabel.centerYAnchor.constraint(equalTo: mainLabel.centerYAnchor),
             //percentLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topDownInset),

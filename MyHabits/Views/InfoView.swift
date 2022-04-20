@@ -47,6 +47,7 @@ class InfoView: UIView {
     }
 }
 
+//MARK: constraints
 extension InfoView {
     
     private func setupConstraints() {

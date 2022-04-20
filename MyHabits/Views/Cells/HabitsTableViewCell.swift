@@ -44,6 +44,7 @@ class HabitsTableViewCell: UITableViewCell {
             content.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             content.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             content.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            content.heightAnchor.constraint(equalToConstant: 130),
             
             nameLabel.topAnchor.constraint(equalTo: content.topAnchor, constant: standartInset),
             nameLabel.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: standartInset),

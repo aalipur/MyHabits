@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         //window?.rootViewController = createTabBar()
         window?.rootViewController = TabBarController()
+        //window?.rootViewController = HabitDetailsViewController()
         window?.makeKeyAndVisible()
     }
     
