@@ -94,6 +94,15 @@ class HabitViewController: UIViewController {
         return strDate
     }
     
+    private func showAlert() {
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        let abortButton = UIAlertAction(title: abortButtonText, style: .default, handler: {_ in print("abort")})
+        let deleteButton = UIAlertAction(title: deleteButtonText, style: .destructive, handler: {_ in print("del")})
+        alert.addAction(abortButton)
+        alert.addAction(deleteButton)
+        present(alert, animated: true)
+    }
+    
     //MARK: @objc functions
     @objc private func dismissAction() {
         dismiss(animated: true)
@@ -114,7 +123,7 @@ class HabitViewController: UIViewController {
     }
     
     @objc private func removeAction() {
-        print("removeActionTapped")
+        showAlert()
     }
 }
 

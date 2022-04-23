@@ -10,17 +10,24 @@ import UIKit
 class HabitDetailsViewController: UIViewController {
     
     private let activLabel = UILabel(text: "АКТИВНОСТЬ", font: .sfProTextRegular13(), textColor: .systemGray)
+    
+    private let tableView: UITableView = {
+       let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupNavigation()
+        setupDelegates()
         setupConstraints()
     }
     
     private func setupViews() {
         view.backgroundColor = .specialLightGray
-        [activLabel].forEach{ view.addSubview($0) }
+        [activLabel, tableView].forEach{ view.addSubview($0) }
     }
     
     private func setupNavigation() {
@@ -29,6 +36,11 @@ class HabitDetailsViewController: UIViewController {
         navigationItem.leftBarButtonItem?.tintColor = .specialPurple
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Править", style: .done, target: self, action: #selector(editAction))
         navigationItem.rightBarButtonItem?.tintColor = .specialPurple
+    }
+    
+    private func setupDelegates() {
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     //MARK: @objc functions
@@ -50,8 +62,34 @@ extension HabitDetailsViewController {
             activLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             activLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sideInset),
             activLabel.heightAnchor.constraint(equalToConstant: 18),
-            activLabel.widthAnchor.constraint(equalToConstant: 343)
+            activLabel.widthAnchor.constraint(equalToConstant: 343),
+            
+            tableView.topAnchor.constraint(equalTo: activLabel.bottomAnchor, constant: 6.5),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.heightAnchor.constraint(equalToConstant: 172)
         ])
     }
 }
+//MARK: extension UITableViewDataSource
+extension HabitDetailsViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        var content = cell.defaultContentConfiguration()
+        content.text = "test"
+        cell.contentConfiguration = content
+        cell.backgroundColor = .white
+        return cell
+    }
+}
 
+//MARK: extension UITableViewDelegate
+extension HabitDetailsViewController: UITableViewDelegate {
+    
+    
+}
