@@ -109,7 +109,25 @@ class HabitViewController: UIViewController {
     }
 
     @objc private func saveAction() {
-        print("saveTapped")
+        /*
+         При нажатии на кнопку "Создать" нужно создать новый экземпляр класса Habit и сохранить его в HabitsStore, например:
+
+         let newHabit = Habit(name: "Выпить стакан воды перед завтраком",
+                              date: Date(),
+                              color: .systemRed)
+         let store = HabitsStore.shared
+         store.habits.append(newHabit)
+         
+         Для сохранения данных о привычке нужно использовать свойства, которые пользователь задал с помощью элементов интерфейса: UITextField, UIView с заданным backgroundColor, UIDatePicker.
+
+         После сохранения новой привычки экран HabitViewController должен закрываться.
+         */
+        let newHabit = Habit(name: nameTextfield.text ?? "",
+                             date: datePicker.date,
+                             color: colorButton.backgroundColor ?? UIColor.specialPurple)
+        let store = HabitsStore.shared
+        store.habits.append(newHabit)
+        dismiss(animated: true)
     }
     
     @objc private func selectColor() {

@@ -82,11 +82,12 @@ extension HabitsViewController {
 extension HabitsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        array.count
+        HabitsStore.shared.habits.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HabitsCollectionViewCell.identifier, for: indexPath) as? HabitsCollectionViewCell else { return UICollectionViewCell() }
+        //cell.HabitsStore.shared.habits[indexPath]
         return cell
     }
 }
