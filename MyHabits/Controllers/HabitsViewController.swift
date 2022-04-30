@@ -23,6 +23,7 @@ class HabitsViewController: UIViewController {
        let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = .specialLightGray
         collectionView.register(HabitsCollectionViewCell.self, forCellWithReuseIdentifier: HabitsCollectionViewCell.identifier)
         return collectionView
@@ -37,7 +38,7 @@ class HabitsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.reloadData()
+        reloadData()
     }
 
     //MARK: functions
@@ -53,6 +54,10 @@ class HabitsViewController: UIViewController {
     private func setupDelegates() {
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+    
+    private func reloadData() {
+        collectionView.reloadData()
     }
     
     //MARK: @objc functions
@@ -94,6 +99,7 @@ extension HabitsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HabitsCollectionViewCell.identifier, for: indexPath) as? HabitsCollectionViewCell else { return UICollectionViewCell() }
         //cell.HabitsStore.shared.habits[indexPath]
+        cell.setupContentCell(index: indexPath.row)
         return cell
     }
 }

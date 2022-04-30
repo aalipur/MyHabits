@@ -10,10 +10,12 @@ import UIKit
 class HabitDetailsViewController: UIViewController {
     
     private let activLabel = UILabel(text: "АКТИВНОСТЬ", font: .sfProTextRegular13(), textColor: .systemGray)
+    let store = HabitsStore.shared
     
     private let tableView: UITableView = {
        let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
 
@@ -49,7 +51,10 @@ class HabitDetailsViewController: UIViewController {
     }
 
     @objc private func editAction() {
-        print("saveTapped")
+         let habitEditVC = HabitEditViewController()
+         let navContr = UINavigationController(rootViewController: habitEditVC)
+         navContr.modalPresentationStyle = .fullScreen
+         present(navContr,animated: true)
     }
 }
 
@@ -81,7 +86,7 @@ extension HabitDetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         var content = cell.defaultContentConfiguration()
-        content.text = "test"
+        content.text = cell.setupContentCell(index: indexPath.row)
         cell.contentConfiguration = content
         cell.backgroundColor = .white
         return cell
