@@ -66,6 +66,7 @@ class HabitViewController: UIViewController {
         setupNavigation()
         setupConstraints()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         view.layoutIfNeeded()

@@ -27,15 +27,20 @@ class HabitsViewController: UIViewController {
         collectionView.register(HabitsCollectionViewCell.self, forCellWithReuseIdentifier: HabitsCollectionViewCell.identifier)
         return collectionView
     }()
-
+    //MARK: ViewcCntroller LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
         setupDelegates()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
 
-//MARK: functions
+    //MARK: functions
     private func setupViews() {
         view.backgroundColor = .specialLightGray
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addHabit))
@@ -49,6 +54,7 @@ class HabitsViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
+    
     //MARK: @objc functions
     @objc private func addHabit() {
         let habitVC = HabitViewController()
