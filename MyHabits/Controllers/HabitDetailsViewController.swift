@@ -63,6 +63,7 @@ extension HabitDetailsViewController {
     
     private func setupConstraints() {
         let sideInset:CGFloat = 16
+        
         NSLayoutConstraint.activate([
             activLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             activLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sideInset),
@@ -72,7 +73,8 @@ extension HabitDetailsViewController {
             tableView.topAnchor.constraint(equalTo: activLabel.bottomAnchor, constant: 6.5),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.heightAnchor.constraint(equalToConstant: 172)
+            //tableView.heightAnchor.constraint(equalToConstant: 172)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }
@@ -80,15 +82,19 @@ extension HabitDetailsViewController {
 extension HabitDetailsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        let store = HabitsStore.shared
+        return store.dates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         var content = cell.defaultContentConfiguration()
-        content.text = cell.setupContentCell(index: indexPath.row)
+        let store = HabitsStore.shared
+        content.text = store.trackDateString(forIndex: indexPath.row)
         cell.contentConfiguration = content
         cell.backgroundColor = .white
+        cell.tintColor = store.habits[indexPath.row].color
+        cell.accessoryType = .checkmark
         return cell
     }
 }

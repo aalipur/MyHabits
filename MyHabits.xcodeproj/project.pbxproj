@@ -29,7 +29,6 @@
 		31552C2E280BE52C008EF9CD /* ProgressCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31552C2D280BE52C008EF9CD /* ProgressCollectionViewCell.swift */; };
 		31552C33280BEFC2008EF9CD /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31552C32280BEFC2008EF9CD /* UIView + Extension.swift */; };
 		31552C35280BFDE8008EF9CD /* HabitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31552C34280BFDE8008EF9CD /* HabitDetailsViewController.swift */; };
-		31692B12281D591A003C609D /* UITableViewCell + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31692B11281D591A003C609D /* UITableViewCell + Extensions.swift */; };
 		31692B14281D778D003C609D /* HabitEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31692B13281D778D003C609D /* HabitEditViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +57,6 @@
 		31552C2D280BE52C008EF9CD /* ProgressCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCollectionViewCell.swift; sourceTree = "<group>"; };
 		31552C32280BEFC2008EF9CD /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		31552C34280BFDE8008EF9CD /* HabitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsViewController.swift; sourceTree = "<group>"; };
-		31692B11281D591A003C609D /* UITableViewCell + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + Extensions.swift"; sourceTree = "<group>"; };
 		31692B13281D778D003C609D /* HabitEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,7 +157,6 @@
 			children = (
 				313F43062801A0DF007052DB /* UIKit */,
 				31552C32280BEFC2008EF9CD /* UIView + Extension.swift */,
-				31692B11281D591A003C609D /* UITableViewCell + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -288,7 +285,6 @@
 				31552C33280BEFC2008EF9CD /* UIView + Extension.swift in Sources */,
 				314979C7280B027C00F006D0 /* HabitViewController.swift in Sources */,
 				313C5F56280AD63200D0BAEF /* Text.swift in Sources */,
-				31692B12281D591A003C609D /* UITableViewCell + Extensions.swift in Sources */,
 				313C5F50280AD57D00D0BAEF /* UILabel + Extensions.swift in Sources */,
 				313C5F53280AD5D100D0BAEF /* InfoView.swift in Sources */,
 				31552C35280BFDE8008EF9CD /* HabitDetailsViewController.swift in Sources */,

@@ -34,7 +34,10 @@ class ProgressBarView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .white
         layer.cornerRadius = 8
-        progressView.setProgress(0.5, animated: true)
+        let store = HabitsStore.shared
+        let progress = store.todayProgress
+        percentLabel.text = "\(Int(progress))%"
+        progressView.setProgress(progress, animated: true)
         [mainLabel, percentLabel, progressView].forEach{ addSubview($0) }
     }
 }

@@ -47,16 +47,6 @@ class HabitViewController: UIViewController {
         datePicker.addTarget(self, action: #selector(datePickerAction), for: .valueChanged)
         return datePicker
     }()
-    
-    private lazy var removeButton: UIButton = {
-       let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Удалить привычку", for: .normal)
-        button.setTitleColor(UIColor.specialRed, for: .normal)
-        button.titleLabel?.font = .sfProTextSemi17()
-        button.addTarget(self, action: #selector(removeAction), for: .touchUpInside)
-        return button
-    }()
 
     //MARK: ViewcCntroller LifeCycle
     override func viewDidLoad() {

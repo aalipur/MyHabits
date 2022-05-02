@@ -11,7 +11,7 @@ class HabitsCollectionViewCell: UICollectionViewCell {
     
     private let nameLabel = UILabel(text: "", font: .sfProTextSemi17(), textColor: .specialPurple)
     private let periodLabel = UILabel(text: "", font: .sfProTextRegular17(), textColor: .specialGray)
-    private let countLabel = UILabel(text: "Счетчик: 0", font: .sfProTextRegular17(), textColor: .specialGray)
+    private let countLabel = UILabel(text: "", font: .sfProTextRegular17(), textColor: .specialGray)
     
     private let roundView: UIView = {
         let view = UIView()
@@ -49,10 +49,8 @@ class HabitsCollectionViewCell: UICollectionViewCell {
         let store = HabitsStore.shared
         nameLabel.text = store.habits[index].name
         nameLabel.textColor = store.habits[index].color
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        let hourString = dateFormatter.string(from: store.habits[index].date)
-        periodLabel.text = "Каждый день в \(hourString)"
+        periodLabel.text = store.trackDateString(forIndex: index)
+        countLabel.text = "Счетчик: \(store.dates.count)"
         roundView.layer.borderColor = store.habits[index].color.cgColor
     }
 }

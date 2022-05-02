@@ -26,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let habitsVC = HabitsViewController()
         habitsVC.title = "Привычки"
         habitsVC.tabBarItem = UITabBarItem(title: "Привычки", image: UIImage(systemName: "rectangle.grid.1x2.fill"), tag: 0)
+        //habitsVC.tabBarItem.setTitleTextAttributes(<#[NSAttributedString.Key : Any]?#>, for: .selected)
         return UINavigationController(rootViewController: habitsVC)
     }
     
@@ -39,6 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func createTabBar() -> UITabBarController {
         let tabBar = UITabBarController()
         //UITabBar.appearance().tintColor = .specialBlue
+        //UITabBar.appearance().selectedItem?.badgeColor = .specialPurple
         tabBar.view.backgroundColor = .specialBackgroundTabBar
         tabBar.viewControllers = [createHabitsNavigigationController(), createInfoNavigigationController()]
         return tabBar
