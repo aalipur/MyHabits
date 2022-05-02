@@ -1,14 +1,14 @@
 //
-//  HabitViewController.swift
+//  HabitEditViewController.swift
 //  MyHabits
 //
-//  Created by Анатолий Алипур on 16.04.2022.
+//  Created by Анатолий Алипур on 30.04.2022.
 //
 
 import UIKit
 
-class HabitViewController: UIViewController {
-    
+class HabitEditViewController: UIViewController {
+
     private let nameLabel = UILabel(text: "НАЗВАНИЕ", font: .sfProTextSemi13(), textColor: .black)
     
     private let nameTextfield: UITextField = {
@@ -47,6 +47,16 @@ class HabitViewController: UIViewController {
         datePicker.addTarget(self, action: #selector(datePickerAction), for: .valueChanged)
         return datePicker
     }()
+    
+    private lazy var removeButton: UIButton = {
+       let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Удалить привычку", for: .normal)
+        button.setTitleColor(UIColor.specialRed, for: .normal)
+        button.titleLabel?.font = .sfProTextSemi17()
+        button.addTarget(self, action: #selector(removeAction), for: .touchUpInside)
+        return button
+    }()
 
     //MARK: ViewcCntroller LifeCycle
     override func viewDidLoad() {
@@ -65,14 +75,14 @@ class HabitViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = .specialLightGray
         self.hideKeyboard()
-        [nameLabel, nameTextfield, colorLabel, colorButton, scheduleLabel, datePicker].forEach{ view.addSubview($0) }
+        [nameLabel, nameTextfield, colorLabel, colorButton, scheduleLabel, datePicker, removeButton].forEach{ view.addSubview($0) }
     }
     
     private func setupNavigation() {
         navigationItem.title = "Создать"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отменить", style: .done, target: self, action: #selector(dismissAction))
         navigationItem.leftBarButtonItem?.tintColor = .specialPurple
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Создать", style: .done, target: self, action: #selector(saveAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .done, target: self, action: #selector(saveAction))
         navigationItem.rightBarButtonItem?.tintColor = .specialPurple
     }
     
@@ -123,7 +133,7 @@ class HabitViewController: UIViewController {
 }
 
 //MARK: extension constraints
-extension HabitViewController {
+extension HabitEditViewController {
     
     private func setupConstraints() {
         let leftSideInset: CGFloat = 15
@@ -159,12 +169,19 @@ extension HabitViewController {
             datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             datePicker.heightAnchor.constraint(equalToConstant: 216),
-            datePicker.widthAnchor.constraint(equalToConstant: 375)
+            datePicker.widthAnchor.constraint(equalToConstant: 375),
+            
+            removeButton.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 219),
+            removeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            removeButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -5),
+            removeButton.heightAnchor.constraint(equalToConstant: 22),
+            removeButton.widthAnchor.constraint(equalToConstant: 147),
         ])
+        
     }
 }
 //MARK: extension UIColorPickerViewControllerDelegate
-extension HabitViewController: UIColorPickerViewControllerDelegate {
+extension HabitEditViewController: UIColorPickerViewControllerDelegate {
 
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
         self.colorButton.backgroundColor = color
@@ -176,7 +193,7 @@ extension HabitViewController: UIColorPickerViewControllerDelegate {
     }
 }
 //MARK: extension hideKeyboard
-extension HabitViewController {
+extension HabitEditViewController {
     
     private func hideKeyboard() {
         let tap = UITapGestureRecognizer(target: self, action:  #selector(dissmissKeyBoard))

@@ -10,6 +10,8 @@
 		313C5F50280AD57D00D0BAEF /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313C5F4F280AD57D00D0BAEF /* UILabel + Extensions.swift */; };
 		313C5F53280AD5D100D0BAEF /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313C5F52280AD5D100D0BAEF /* InfoView.swift */; };
 		313C5F56280AD63200D0BAEF /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313C5F55280AD63200D0BAEF /* Text.swift */; };
+		313D4B83281064E3005ABDF1 /* HabitsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D4B82281064E3005ABDF1 /* HabitsCollectionViewCell.swift */; };
+		313D4B85281075C7005ABDF1 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D4B84281075C7005ABDF1 /* ProgressBarView.swift */; };
 		313F42EF28019DEF007052DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313F42EE28019DEF007052DB /* AppDelegate.swift */; };
 		313F42F128019DEF007052DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313F42F028019DEF007052DB /* SceneDelegate.swift */; };
 		313F42F328019DEF007052DB /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313F42F228019DEF007052DB /* HabitsViewController.swift */; };
@@ -27,13 +29,15 @@
 		31552C2E280BE52C008EF9CD /* ProgressCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31552C2D280BE52C008EF9CD /* ProgressCollectionViewCell.swift */; };
 		31552C33280BEFC2008EF9CD /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31552C32280BEFC2008EF9CD /* UIView + Extension.swift */; };
 		31552C35280BFDE8008EF9CD /* HabitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31552C34280BFDE8008EF9CD /* HabitDetailsViewController.swift */; };
-		31552C37280C0263008EF9CD /* HabitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31552C36280C0263008EF9CD /* HabitsTableViewCell.swift */; };
+		31692B14281D778D003C609D /* HabitEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31692B13281D778D003C609D /* HabitEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		313C5F4F280AD57D00D0BAEF /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
 		313C5F52280AD5D100D0BAEF /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		313C5F55280AD63200D0BAEF /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		313D4B82281064E3005ABDF1 /* HabitsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsCollectionViewCell.swift; sourceTree = "<group>"; };
+		313D4B84281075C7005ABDF1 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		313F42EB28019DEF007052DB /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		313F42EE28019DEF007052DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		313F42F028019DEF007052DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +57,7 @@
 		31552C2D280BE52C008EF9CD /* ProgressCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCollectionViewCell.swift; sourceTree = "<group>"; };
 		31552C32280BEFC2008EF9CD /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		31552C34280BFDE8008EF9CD /* HabitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsViewController.swift; sourceTree = "<group>"; };
-		31552C36280C0263008EF9CD /* HabitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsTableViewCell.swift; sourceTree = "<group>"; };
+		31692B13281D778D003C609D /* HabitEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				31552C2C280BE4B2008EF9CD /* Cells */,
+				313D4B84281075C7005ABDF1 /* ProgressBarView.swift */,
 				313C5F52280AD5D100D0BAEF /* InfoView.swift */,
 			);
 			path = Views;
@@ -128,8 +133,9 @@
 				313F43162801C094007052DB /* TabBarController.swift */,
 				313F42F228019DEF007052DB /* HabitsViewController.swift */,
 				314979C6280B027C00F006D0 /* HabitViewController.swift */,
-				313F43142801BFBD007052DB /* InfoViewController.swift */,
 				31552C34280BFDE8008EF9CD /* HabitDetailsViewController.swift */,
+				31692B13281D778D003C609D /* HabitEditViewController.swift */,
+				313F43142801BFBD007052DB /* InfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				31552C2D280BE52C008EF9CD /* ProgressCollectionViewCell.swift */,
-				31552C36280C0263008EF9CD /* HabitsTableViewCell.swift */,
+				313D4B82281064E3005ABDF1 /* HabitsCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -265,14 +271,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31692B14281D778D003C609D /* HabitEditViewController.swift in Sources */,
 				313F430A2801B0E1007052DB /* UIFont + Extension.swift in Sources */,
 				313F42F328019DEF007052DB /* HabitsViewController.swift in Sources */,
-				31552C37280C0263008EF9CD /* HabitsTableViewCell.swift in Sources */,
 				313F43082801A59B007052DB /* UIColor + Extension.swift in Sources */,
 				314979C3280AF44900F006D0 /* HabitsStore.swift in Sources */,
 				313F42EF28019DEF007052DB /* AppDelegate.swift in Sources */,
 				313F43172801C094007052DB /* TabBarController.swift in Sources */,
 				313F43152801BFBD007052DB /* InfoViewController.swift in Sources */,
+				313D4B85281075C7005ABDF1 /* ProgressBarView.swift in Sources */,
+				313D4B83281064E3005ABDF1 /* HabitsCollectionViewCell.swift in Sources */,
 				31552C2E280BE52C008EF9CD /* ProgressCollectionViewCell.swift in Sources */,
 				31552C33280BEFC2008EF9CD /* UIView + Extension.swift in Sources */,
 				314979C7280B027C00F006D0 /* HabitViewController.swift in Sources */,

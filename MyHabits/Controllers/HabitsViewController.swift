@@ -4,79 +4,62 @@
 //
 //  Created by Анатолий Алипур on 09.04.2022.
 //
-/*
- Создание проекта
 
- 
- 
- Добавьте класс HabitsStore.swift.
- Проверьте, что проект собирается без ошибок.
- Добавление базовой навигации
-
- Вёрстку самих экранов нужно будет сделать в следующих шагах.
-
- На экране HabitsViewController добавьте кнопку "Добавить" согласно макетам.
- Добавление экрана с информацией
-
- На экран InfoViewController добавить информацию о привычках согласно макетам. Если текст не влезает на экран, он должен скроллиться.
-
- Весь контент на экране должен скроллиться.
-
-
- */
 import UIKit
 
 class HabitsViewController: UIViewController {
     
-//    private let navController: UINavigationController = {
-//       let nav = UINavigationController()
-//
-//        return nav
-//    }()
+    private let array: [Int] = {
+       var arr = [Int]()
+        for i in 0...30 {
+            arr.append(i)
+        }
+        return arr
+    }()
     
-    private lazy var collectionView: UICollectionView = {
+    private let progressView = ProgressBarView()
+    
+    private let collectionView: UICollectionView = {
        let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(ProgressCollectionViewCell.self, forCellWithReuseIdentifier: ProgressCollectionViewCell.identifier)
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.backgroundColor = .specialLightGray
+        collectionView.register(HabitsCollectionViewCell.self, forCellWithReuseIdentifier: HabitsCollectionViewCell.identifier)
         return collectionView
     }()
-    
-    private lazy var progressSlider: UISlider = {
-       let slider = UISlider()
-        slider .translatesAutoresizingMaskIntoConstraints = false
-        slider.minimumValue = 0
-        slider.maximumValue = 100
-        slider.maximumTrackTintColor = .specialGray
-        slider.minimumTrackTintColor = .specialPurple
-        //slider.addTarget(self, action: #selector(progressSliderChange), for: .valueChanged)
-        return slider
-    }()
-    
-    private let tableView: UITableView = {
-        let table = UITableView()
-        table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(HabitsTableViewCell.self, forCellReuseIdentifier: String.init(HabitsTableViewCell.identifier))
-        table.rowHeight = UITableView.automaticDimension
-        return table
-    }()
-
+    //MARK: ViewcCntroller LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        setupDelegates()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadData()
     }
 
-//MARK: functions
+    //MARK: functions
     private func setupViews() {
         view.backgroundColor = .specialLightGray
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addHabit))
+        navigationItem.rightBarButtonItem?.tintColor = .specialPurple
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Сегодня"
-        [collectionView, progressSlider, tableView].forEach{ view.addSubview($0) }
+        [progressView, collectionView].forEach{ view.addSubview($0) }
     }
+    
+    private func setupDelegates() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
+    
+    private func reloadData() {
+        collectionView.reloadData()
+    }
+    
     //MARK: @objc functions
     @objc private func addHabit() {
         let habitVC = HabitViewController()
@@ -90,24 +73,18 @@ class HabitsViewController: UIViewController {
 extension HabitsViewController {
     
     private func setupConstraints() {
-        let leftRightInset:CGFloat = 12
-        let collectionCellHeight: CGFloat = 80
+        let leftRightInset: CGFloat = 16
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 162),
+            progressView.topAnchor.constraint(equalTo: view.topAnchor, constant: 162),
+            progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftRightInset),
+            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -leftRightInset),
+            progressView.heightAnchor.constraint(equalToConstant: 60),
+            
+            collectionView.topAnchor.constraint(equalTo: progressView.bottomAnchor, constant: 18),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftRightInset),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -leftRightInset),
-            collectionView.heightAnchor.constraint(equalToConstant: collectionCellHeight),
-            
-            progressSlider.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
-            progressSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftRightInset),
-            progressSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -leftRightInset),
-            
-            tableView.topAnchor.constraint(equalTo: progressSlider.bottomAnchor, constant: 20),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftRightInset),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -leftRightInset),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }
@@ -116,36 +93,40 @@ extension HabitsViewController {
 extension HabitsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        HabitsStore.shared.habits.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgressCollectionViewCell.identifier, for: indexPath) as? ProgressCollectionViewCell else { return UICollectionViewCell() }
-        return cell
-    }
-}
-//MARK: extension UITableViewDelegate
-extension HabitsViewController: UICollectionViewDelegate {
-    
-    
-}
-
-//MARK: extension UITableViewDataSource
-extension HabitsViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: HabitsTableViewCell.identifier, for: indexPath) as?
-                HabitsTableViewCell else { return UITableViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HabitsCollectionViewCell.identifier, for: indexPath) as? HabitsCollectionViewCell else { return UICollectionViewCell() }
+        //cell.HabitsStore.shared.habits[indexPath]
+        cell.setupContentCell(index: indexPath.row)
         return cell
     }
 }
 
 //MARK: extension UITableViewDelegate
-extension HabitsViewController: UITableViewDelegate {
+extension HabitsViewController: UICollectionViewDelegateFlowLayout {
     
+    private var collectionViewCellHeight: CGFloat { return 130 }
+    private var lineSpacingForSection: CGFloat { return 12 }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width
+        return CGSize(width: width, height: collectionViewCellHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        lineSpacingForSection
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let habitDetailVC = HabitDetailsViewController()
+        let navContr = UINavigationController(rootViewController: habitDetailVC)
+        navContr.modalPresentationStyle = .fullScreen
+        present(navContr,animated: true)
+//        habitDetailVC.title = "wefv"
+//        habitDetailVC.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "sddcs", style: .done, target: self, action: nil)
+//        navigationController?.navigationBar.tintColor = .specialPurple
+//        navigationController?.pushViewController(habitDetailVC, animated: true)
+    }
 }
